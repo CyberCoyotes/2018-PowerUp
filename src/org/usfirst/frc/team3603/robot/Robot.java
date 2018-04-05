@@ -242,6 +242,8 @@ public class Robot extends IterativeRobot {
 			shift.set(in); //Set the transmission piston to in (low gear)
 		}
 		
+		//Encoder reset code can be very CPU intensive, and having the if statement in the looping teleopPeriodic() will make it run often
+		//I'd reccomend either removing this if possible or limiting how often it can run. Email joshua@joshuajacobson.me for more info/solutions
 		if(joy1.getRawButton(12)) {
 			driveEnc.reset();
 		}
